@@ -71,6 +71,8 @@ before_install:
   - export PATH="$HOME/.yarn/bin:$PATH"
   # install rust
   #- curl https://sh.rustup.rs -sSf | sh -s -- -y -v
+  # install zig
+  #- wget -q https://github.com/marler8997/zigup/releases/download/v2023_07_27/zigup.ubuntu-latest-x86_64.zip && unzip zigup.ubuntu-latest-x86_64.zip -d $PWD && chmod +x $PWD/zigup && $PWD/zigup 0.11.0
   ## required when sudo: required for the Ruby petstore tests
   #- gem install bundler -v 2.3.26
   ## set python 3.6.3 as default

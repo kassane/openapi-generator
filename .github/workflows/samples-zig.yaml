@@ -1,0 +1,34 @@
+name: Samples Zig
+
+on:
+  push:
+    paths:
+      - "samples/client/others/zig/**"
+      # - "samples/server/petstore/zig-server/**"
+      # - "samples/client/petstore/zig-server/**"
+  pull_request:
+    paths:
+      - "samples/client/others/zig/**"
+      - "samples/client/petstore/zig/**"
+      # - "samples/server/petstore/zig-server/**"
+
+jobs:
+  build:
+    name: Build zig
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        sample:
+          # these folders contain sub-projects of zig clients, servers
+          - samples/client/others/zig/
+          - samples/client/petstore/zig/
+          # - samples/server/petstore/zig-server/
+    steps:
+      - uses: actions/checkout@v3
+      - uses: goto-bus-stop/setup-zig@v2
+        with:
+          version: 0.11.0
+      - name: Build Summary
+        working-directory: ${{ matrix.sample }}
+        run: zig build --summary all -freference-trace

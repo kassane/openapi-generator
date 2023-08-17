@@ -279,3 +279,7 @@ samples/openapi3/client/petstore/go/privatekey.pem
 
 ## OCaml
 samples/client/petstore/ocaml/_build/
+
+## Zig
+zig-cache/
+zig-out/
